@@ -28,6 +28,8 @@ const Condicional = () => {
     </div>
   )
 }
-
+function tecla(e){
+    
+}
 
 export default Condicional

@@ -1,7 +1,6 @@
-import React, {useState} from 'react'
-
-    
-class Contador extends React.Component {
+import React from 'react'
+import ReactDOM from 'react-dom'
+class Test extends React.Component {
     constructor(props) {
       super(props)
       this.state = {
@@ -47,5 +46,9 @@ class Contador extends React.Component {
       this.setState({ clickMessage: 'Button was clicked' })
     }
   }
-
-export default Contador
+  
+  ReactDOM.render(
+    <Test />,
+    document.getElementById("root")
+  )
+  
