@@ -9,8 +9,8 @@ function App() {
       <div className='big'> BarApp</div>
       <br/><br/><br/>
       <Contador/>
-      <br/><br/><br/>
-      <h1> <Condicional/> </h1>
+      <line></line>
+      <Condicional/>
     </div>
   );
 }

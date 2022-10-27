@@ -20,7 +20,7 @@ const Condicional = () => {
         
         
         <h1> condicional : { condicion }  </h1> 
-        <button onClick={()=>{setCondicion(!condicion)}}> x </button>
+        <button className='botonCond' onClick={()=>{setCondicion(!condicion)}}> alternar F/V </button>
         
 
         { condicion ? <h2> hola es verdadero  </h2> : <h3> es falso </h3> }
@@ -28,8 +28,8 @@ const Condicional = () => {
     </div>
   )
 }
-function tecla(e){
+
     
-}
+
 
 export default Condicional

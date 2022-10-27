@@ -1,51 +1,32 @@
 import React, {useState} from 'react'
 
     
-class Contador extends React.Component {
-    constructor(props) {
-      super(props)
-      this.state = {
-        captureSpace: true,
-        captureEnter: true,
-        keyPressMessage: '',
-        clickMessage: ''
-      }
-    }
+
+const Contador = () => {
   
-    render() {
-      return (
-        <div>
-          <p>
-            <span>Give focus to button when pressing</span>
-            <input id="captureSpace" type="checkbox" checked={this.state.captureSpace}
-              onChange={() => this.setState({ captureSpace: !this.state.captureSpace })} />
-            <label for="captureSpace">SpaceBar key</label>
-            <input id="captureEnter" type="checkbox" checked={this.state.captureEnter}
-              onChange={() => this.setState({ captureEnter: !this.state.captureEnter })} />
-            <label for="captureEnter">Enter key</label>
-          </p>
-          <p>
-            <input type="text" onKeyDown={(e) => this.handleKeyDown(e)} />
-            <span>{this.state.keyPressMessage}</span> - <span>{this.state.clickMessage}</span><br />
-            <button ref="thebutton" onClick={(e) => this.handleClick(e)} >Click me</button>
-          </p>
-        </div>
-      )
-    }
-    handleKeyDown(e) {
-      this.setState({ clickMessage: '' })
-      this.setState({ keyPressMessage: 'key: "' + e.key + '" - keyCode: ' + e.keyCode })
-      if (this.state.captureSpace && (e.key === " " || e.keyCode === 32)) {
-        this.refs.thebutton.focus()
-      }
-      if (this.state.captureEnter && (e.key === "Enter" || e.keyCode === 13)) {
-        this.refs.thebutton.focus()
-      }
+  const [contador,setContador]= useState(0);
   
-    }
-    handleClick(e) {
-      this.setState({ clickMessage: 'Button was clicked' })
-    }
+  document.addEventListener("keydown",tecla)
+  function tecla(e){
+    const tecla1 = e.key
+   
+    if(tecla1 === "+") setContador(contador+1)
+    if(tecla1 === "-") setContador(contador-1)
+    if(tecla1 === "0") setContador(0)
   }
 
-export default Contador
+  
+    return (
+    <div>
+      
+      
+      <h1> click : {contador}</h1>
+      <button className='suma' onClick={()=>{setContador(contador+1)}}> + </button>
+      <button className='reinicio' onClick={()=>{setContador(0)}}> reinicio </button>
+      <button className='resta' onClick={()=>{setContador(contador-1)}}> - </button>
+    
+    </div>
+  )
+}
+
+export default Contador;
